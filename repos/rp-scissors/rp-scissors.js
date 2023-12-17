@@ -5,6 +5,7 @@ const buttons = document.querySelectorAll('button')
 const compScore = document.getElementById('computer-score')
 const userScore = document.getElementById('user-score')
 const winner = document.getElementById('winner')
+const restart = document.querySelector('.restart')
 let userSelection;
 let computerSelection = getComputerChoice();
 let userCount = 0;
@@ -38,7 +39,7 @@ function getComputerChoice() {
 function playRound(userSelection, computerSelection) {
         let result;
         
-    // why did it not work when usercount and compcount = 0 were both stored inside the function?
+   
     if (userSelection === computerSelection) {
             
             result = `You tied! ${userSelection} ties ${computerSelection}` 
@@ -82,6 +83,13 @@ function gameWon() {
         compChoice.innerHTML = '';
     }
 }
+
+restart.addEventListener('click', () => {
+    userCount = 0
+    compCount = 0
+    winner.innerHTML = ''
+    
+})
 
 
 console.log(getComputerChoice())
